@@ -1,0 +1,206 @@
+\documentclass[a4paper]{book}
+\usepackage[nottoc]{tocbibind}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{relsize}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{tikz,pgfplots}
+\usepackage[pagebackref=false,colorlinks,linkcolor=blue,citecolor=blue,urlcolor=cyan]{hyperref}
+\usepackage[americanvoltages,fulldiodes,siunitx]{circuitikz}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{bbm}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{algpseudocode}
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\geometry{
+	a4paper,
+	total={164mm,247mm},
+	left=23mm,
+	top=25mm,
+}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\DeclareMathOperator*{\p}{\mathbb{P}} 
+\DeclareMathOperator*{\e}{\mathbb{E}} 
+\DeclareMathOperator*{\privk}{\mathrm{PrivK}_{\A,\Pi}^\mathrm{eav}} 
+\DeclareMathOperator*{\privkk}{\mathrm{PrivK}_{\mathcal{\bar{A}},\Pi}^\mathrm{eav}}
+\DeclareMathOperator*{\D}{\mathcal{D}} 
+\DeclareMathOperator*{\A}{\mathcal{A}} 
+\DeclareMathOperator*{\B}{\mathcal{B}} 
+\DeclareMathOperator*{\R}{\mathbb{R}} 
+\DeclareMathOperator*{\GG}{\mathbb{G}} 
+\DeclareMathOperator*{\ZZ}{\mathbb{Z}} 
+\DeclareMathOperator*{\Enc}{\mathsf{Enc}} 
+\DeclareMathOperator*{\Dec}{\mathsf{Dec}} 
+\DeclareMathOperator*{\Vrfy}{\mathsf{Vrfy}} 
+\DeclareMathOperator*{\Mac}{\mathsf{Mac}} 
+\DeclareMathOperator*{\Abar}{\mathcal{\bar{A}}} 
+\DeclareMathOperator*{\F}{\mathcal{F}} 
+\DeclareMathOperator*{\RR}{\mathbb{R}} 
+\DeclareMathOperator*{\bW}{\mathbf{W}} 
+\DeclareMathOperator*{\bB}{\mathbf{B}} 
+
+
+\titleformat{\section}
+{\normalfont\fontsize{20}{20}\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\fontsize{15}{20}\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\fontsize{12}{20}\bfseries}{\thesubsubsection}{1em}{}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+%%%%%%%%%%%%%%%%%%%
+\rhead{مقدمه‌ای بر محرمانگی تفاضلی}
+
+\lhead{گروه مطالعاتی دکتر جواد ابراهیمی}
+%%%%%%%%%%%%%%%%%%%
+
+
+%\cfoot{(\space \space \space \space \textbf{\thepage}  \space \space \space)}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+%\renewcommand{\footrulewidth}{1pt}
+
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.9em}
+\renewcommand{\baselinestretch}{1.4}
+
+
+\newtheorem{theorem}{قضیه}
+\newtheorem{annotation}{نمادگذاری}
+\newtheorem{proposition}{گزاره}
+\newtheorem{claim}{ادعا}
+\newtheorem{lemma}{لم}
+\newtheorem{corollary}{نتیجه}
+\newtheorem{definition}{تعریف} % Use this for non-trivial definitions.
+
+\newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny def}}}{=}}}
+
+
+\usepackage{xepersian}
+\settextfont{XB_NILOOFAR.ttf}
+\setdigitfont{XB_NILOOFAR.ttf}
+
+\makeatletter
+\bidi@patchcmd{\@Abjad}{آ}{الف}
+{\typeout{Succeeded in changing `آ` into `الف`}}
+{\typeout{Failed in changing `آ` into `الف`}}
+\makeatother
+\PersianAlphs
+
+
+\lstdefinestyle{CStyle}{
+	backgroundcolor=\color{backgroundColour},   
+	commentstyle=\color{mGreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{mGray},
+	stringstyle=\color{mPurple},
+	basicstyle=\ttfamily,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	language=C
+}
+
+\lstdefinestyle{JavaStyle}{
+	backgroundcolor=\color{backgroundColour},   
+	commentstyle=\color{mGreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{mGray},
+	stringstyle=\color{mPurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	language=java
+}
+
+\begin{document}
+	\large
+\begin{titlepage}
+	
+	\begin{center}
+		\textbf{
+			باسمه تعالی\\
+		}
+		\vspace{2cm}
+		\includegraphics[scale=0.23]{logo.png}\\
+		\vspace{0.5cm}
+		\begin{Large}
+			\textbf{
+				دانشگاه صنعتی شریف\\
+				\vspace{0.5cm}
+				دانشکده ریاضی و علوم کامپیوتر\\
+			}
+			\vspace{2cm}			
+		\end{Large}
+		\begin{huge}
+			\textbf{
+			‌مقدمه‌ای بر محرمانگی تفاضلی و کاربردها  \\
+		\LARGE{\LR{an Introduction to Differential Privacy and Applications}}
+		\\
+			}
+		\end{huge}
+		\vspace{5.5cm}
+		\begin{Large}
+			\textbf{
+				گروه مطالعاتی دکتر جواد ابراهیمی بروجنی\\
+				\vspace{.5cm}
+				نگارنده: دانیال آیتی\\
+				(و جمعی از دانشجویان گروه) \\
+				\vspace{1cm}
+				تابستان ۱۴۰۳
+			}
+		\end{Large}
+	\end{center}
+	\thispagestyle{empty}
+\end{titlepage}	
+
+\include{Abstract/Abstract}	
+\tableofcontents
+\include{Introduction/Introduction}
+\include{Reference/Reference}
+
+
+
+\end{document}
